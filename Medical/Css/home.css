@@ -1,0 +1,95 @@
+.container{
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top:70px;
+}
+.container .btn-group{
+    display: flex;
+    justify-content: center;
+    margin-right: 1rem;
+    
+}
+
+.container .btn-group .btn{
+    border-radius: 10px;
+    margin-right:2rem;
+    margin-top:1rem;
+    
+}
+.btn-group>.btn-group:not(:last-child)>.btn, .btn-group>.btn.dropdown-toggle-split:first-child, .btn-group>.btn:not(:last-child):not(.dropdown-toggle) {
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+.container h1{
+    margin-bottom: 30px;
+    margin-right: 40px;
+    font-family: "Source Sans 3",sans-serif;
+}
+.container p{
+    margin-bottom:20px;
+    font-family: "Source Sans 3",sans-serif;
+    width: 500px;
+}
+
+.navbar .container-fluid .collapse .navbar-nav .nav-item{
+    margin-left: 20%;
+    margin-right: 4rem;
+}
+.navbar{
+    height:100px;
+}
+
+.container .btn-group .btn .btn-link{
+    color:white;
+    text-decoration: none;
+}
+
+.footer {
+    background-color: #343a40; /* Dark background color */
+    color: #ffffff; /* White text color */
+    padding-top: 40px; /* Add some padding at the top */
+    width: 100%;
+    height: fit-content;
+}
+
+.footer h5 {
+    color: #ffffff; /* White text color for headings */
+}
+
+.footer ul {
+    list-style: none; /* Remove bullet points */
+    padding-left: 0; /* Remove default padding */
+}
+
+.footer ul li {
+    margin-bottom: 10px; /* Add some space between list items */
+}
+
+.footer a {
+    color: #ffffff; /* White text color for links */
+}
+
+.footer a:hover {
+    color: #cccccc; /* Lighter color on hover */
+}
+
+.footer .p-3 {
+    background-color: rgba(0, 0, 0, 0.2); /* Semi-transparent background color for footer bottom */
+}
+
+.footer .row .col .list-unstyled{
+    margin-left: 100px;
+    text-decoration: none;
+}
+
+.footer .row .col .list-unstyled .foot-link{
+    text-decoration: none;
+}
+
+
+.footer .row .col h5{
+    margin-left: 100px;
+}
