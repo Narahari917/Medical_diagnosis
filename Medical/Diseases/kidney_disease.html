@@ -1,84 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kidney Disease</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link href = "/Css/kidney.css" rel = "stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Sedan:ital@0;1&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
-</head>
-<body>
-    <nav class="navbar navbar-expand navbar-dark bg-dark" aria-label="Second navbar example">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="index.html">Medico</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample02" aria-controls="navbarsExample02" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-    
-          <div class="collapse navbar-collapse" id="navbarsExample02">
-            <ul class="navbar-nav me-auto">
-              <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="../services.html">Services</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/symptoms.html">Symptoms</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/faqs.html">FAQS</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/about.html">About</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-    </nav>
 
-    <div class = "container">
-      <h1>Kidney Disease Prediction</h1>
-      <form class = "form">
-        <div class="row">
-            <input type="text" class = "form-item" placeholder = "Age" >
-            <input type="text" class = "form-item" placeholder= "Bp" >
-            <input type="text" class = "form-item" placeholder= "Sg" >
-            <input type="text" class = "form-item" placeholder= "Al" >
-            <input type="text" class = "form-item" placeholder= "Su" >
-            <input type="text" class = "form-item" placeholder= "Rbc" >
-            <input type="text" class = "form-item" placeholder= "Pc" >
-            <input type="text" class = "form-item" placeholder= "Pcc" >
-            <input type="text" class = "form-item" placeholder= "Ba" >
-            <input type="text" class = "form-item" placeholder= "Bgr" >
-            <input type="text" class = "form-item" placeholder= "Bu" >
-            <input type="text" class = "form-item" placeholder= "Sc" >
-            <input type="text" class = "form-item" placeholder= "Sod" >
-            <input type="text" class = "form-item" placeholder= "Pot" >
-            <input type="text" class = "form-item" placeholder = "Hemo" >
-            <input type="text" class = "form-item" placeholder= "Pcv" >
-            <input type="text" class = "form-item" placeholder= "Wc" >
-            <input type="text" class = "form-item" placeholder= "Rc" >
-            <input type="text" class = "form-item" placeholder= "Htn" >
-            <input type="text" class = "form-item" placeholder= "Dm" >
-            <input type="text" class = "form-item" placeholder= "Cad" >
-            <input type="text" class = "form-item" placeholder= "Appet" >
-            <input type="text" class = "form-item" placeholder= "Pe" >
-            <input type="text" class = "form-item" placeholder= "Ane" >
-        </div>
-        <button type="button" class="btn btn-primary ">submit</button>
-      </form>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kidney Disease</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link href="/static/kidney.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Sedan:ital@0;1&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+  <nav class="navbar navbar-expand navbar-dark bg-dark" aria-label="Second navbar example">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/">Medico</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample02"
+        aria-controls="navbarsExample02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarsExample02">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="/services">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/symptoms">Symptoms</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/faqs">FAQS</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/about">About</a>
+          </li>
+        </ul>
+      </div>
     </div>
+  </nav>
+
+  <div class="container">
+    <h1>Kidney Disease Prediction</h1>
+    <form class="form"  action="{{ url_for('predict_kidney') }}" method="POST">
+      <div class="row">
+        <input type="text" class="form-item" name = "age" placeholder="Age">
+        <input type="text" class="form-item" name = "bp" placeholder="Bp">
+        <input type="text" class="form-item" name = "sg" placeholder="Sg">
+        <input type="text" class="form-item" name = "al" placeholder="Al">
+        <input type="text" class="form-item" name = "su" placeholder="Su">
+        <select name="rbc" class="form-item">
+          <option value="" disabled selected hidden>RBC</option>
+          <option value=0>Normal</option>
+          <option value=1>Abnormal</option>
+        </select>
+        <select name="pc" class="form-item">
+          <option value="" disabled selected hidden>PC</option>
+          <option value=1>Normal</option>
+          <option value=0>Abnormal</option>
+        </select>
+        <select name="pcc" class="form-item">
+          <option value="" disabled selected hidden>PCC</option>
+          <option value=0>Present</option>
+          <option value=1>Not Present</option>
+        </select>
+        <select name="ba" class="form-item">
+          <option value="" disabled selected hidden>BA</option>
+          <option value=0>Present</option>
+          <option value=1>Not Present</option>
+        </select>
+        <input type="text" name = "bgr" class="form-item" placeholder="Bgr">
+        <input type="text" name = "bu" class="form-item" placeholder="Bu">
+        <input type="text" name = "sc" class="form-item" placeholder="Sc">
+        <input type="text" name = "sod" class="form-item" placeholder="Sod">
+        <input type="text" name = "pot" class="form-item" placeholder="Pot">
+        <input type="text" name = "hemo" class="form-item" placeholder="Hemo">
+        <input type="text" name = "pcv" class="form-item" placeholder="Pcv">
+        <input type="text" name = "wc" class="form-item" placeholder="Wc">
+        <input type="text" name = "rc" class="form-item" placeholder="Rc">
+        <select name="htn" class="form-item">
+          <option value="" disabled selected hidden>HTN</option>
+          <option value=1>Yes</option>
+          <option value=0>No</option>
+        </select>
+        <select name="dm" class="form-item">
+          <option value="" disabled selected hidden>DM</option>
+          <option value=0>Yes</option>
+          <option value=1>No</option>
+        </select>
+        <select name="cad" class = "form-item" >
+          <option value="" disabled selected hidden>CAD</option>
+          <option value=1>Yes</option>
+          <option value=0>No</option>
+      </select>
+      <select name="appet" class = "form-item" >
+        <option value="" disabled selected hidden>APPET</option>
+        <option value=0>Good</option>
+        <option value=1>Poor</option>
+    </select>
+    <select name="pe" class = "form-item" >
+      <option value="" disabled selected hidden>PE</option>
+      <option value=0>Yes</option>
+      <option value=1>No</option>
+  </select>
+  <select name="ane" class = "form-item" >
+    <option value="" disabled selected hidden>ANE</option>
+    <option value=0>Yes</option>
+    <option value=1>No</option>
+</select>
+      </div>
+      <input class="btn btn-info" type="submit">
+      <p>{{pred}}</p> 
+    </form>
+  </div>
 </body>
 <footer class="footer" style="max-height: 500px;">
   <div class="row">
     <div class="col md-6">
       <h5>Links</h5>
       <ul class="list-unstyled">
-        <li><a class = "foot-link" href="/index.html">Home</a></li>
-        <li><a class = "foot-link" href="/about.html">About</a></li>
-        <li><a class = "foot-link" href="/services.html">Services</a></li>
-        <li><a class = "foot-link" href="/faqs.html">FAQS</a></li>
+        <li><a class="foot-link" href="/">Home</a></li>
+        <li><a class="foot-link" href="/services">Services</a></li>
+        <li><a class="foot-link" href="/faqs">FAQS</a></li>
+        <li><a class="foot-link" href="/about">About</a></li>
       </ul>
     </div>
     <div class="col md-6">
@@ -95,4 +142,5 @@
     © 2024 YourWebsite.com
   </div>
 </footer>
+
 </html>

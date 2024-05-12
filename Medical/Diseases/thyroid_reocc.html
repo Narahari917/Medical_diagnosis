@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thyroid Reoccurance</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link href = "/Css/thyroid.css" rel = "stylesheet">
+    <link href = "/static/thyroid.css" rel = "stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Sedan:ital@0;1&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
@@ -13,7 +13,7 @@
 <body>
     <nav class="navbar navbar-expand navbar-dark bg-dark" aria-label="Second navbar example">
         <div class="container-fluid">
-          <a class="navbar-brand" href="index.html">Medico</a>
+          <a class="navbar-brand" href="/">Medico</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample02" aria-controls="navbarsExample02" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -21,16 +21,16 @@
           <div class="collapse navbar-collapse" id="navbarsExample02">
             <ul class="navbar-nav me-auto">
               <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="../services.html">Services</a>
+                <a class="nav-link" aria-current="page" href="/services">Services</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/symptoms.html">Symptoms</a>
+                <a class="nav-link" href="/symptoms">Symptoms</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/faqs.html">FAQS</a>
+                <a class="nav-link" href="/faqs">FAQS</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/about.html">About</a>
+                <a class="nav-link" href="/about">About</a>
               </li>
             </ul>
           </div>
@@ -38,26 +38,111 @@
     </nav>
     <div class="container">
       <h1>Thyroid Re-occurance Prediction</h1>
-      <form class = "form">
+      <form class = "form"  action="{{ url_for('predict_thyroid') }}" method="POST">
       <div class="row">
-          <input type="text" class = "form-item" placeholder = "Age" >
-          <input type="text" class = "form-item" placeholder= "Gender" >
-          <input type="text" class = "form-item" placeholder= "Smoking" >
-          <input type="text" class = "form-item" placeholder= "Hx Smoking" >
-          <input type="text" class = "form-item" placeholder= "Hx Radiotherapy" >
-          <input type="text" class = "form-item" placeholder= "Thyroid Function" >
-          <input type="text" class = "form-item" placeholder = "Physical Examination" >
-          <input type="text" class = "form-item" placeholder= "Adenopathy" >
-          <input type="text" class = "form-item" placeholder= "Pathology" >
-          <input type="text" class = "form-item" placeholder= "Focality" >
-          <input type="text" class = "form-item" placeholder= "Risk" >
-          <input type="text" class = "form-item" placeholder= "T" >
-          <input type="text" class = "form-item" placeholder = "N" >
-          <input type="text" class = "form-item" placeholder= "M" >
-          <input type="text" class = "form-item" placeholder= "Stage" >
-          <input type="text" class = "form-item" placeholder= "Response" >
+          <input type="text" name = "age" class = "form-item" placeholder = "Age" >
+          <select name="gender" class = "form-item" >
+            <option value="" disabled selected hidden>Gender</option>
+            <option value=1>Male</option>
+            <option value=0>Female</option>
+          </select>
+          <select name="smoking" class = "form-item" >
+            <option value="" disabled selected hidden>Smoking</option>
+            <option value=1>Yes</option>
+            <option value=0>No</option>
+        </select>
+        <select name="hx smoking" class = "form-item" >
+          <option value="" disabled selected hidden>Hx Smoking</option>
+          <option value=1>Yes</option>
+          <option value=0>No</option>
+      </select>
+      <select name="hx radiotherapy" class = "form-item" >
+        <option value="" disabled selected hidden>Hx Radiotherapy</option>
+        <option value=1>Yes</option>
+        <option value=0>No</option>
+      </select>
+      <select name="thyroid function" class="form-item">
+        <option value="" disabled selected hidden>Thyroid Function</option>
+        <option value=0>Euthyroid</option>
+        <option value=1>Clinical Hyperthyroidism</option>
+        <option value=2>Clinical Hypothyroidism</option>
+        <option value=3>Subclinical Hyperthyroidism</option>
+        <option value=4>Subclinical Hypothyroidism</option>
+      </select>
+      <select name="physical examination" class="form-item">
+        <option value="" disabled selected hidden>Physical Examination</option>
+        <option value=0>Single Nodular Goitar-left</option>
+        <option value=2>Single Nodular Goitar-right</option>
+        <option value=1>Multinodular Goitar</option>
+        <option value=3>Normal</option>
+        <option value=4>Diffuse Goitar</option>
+      </select>
+      <select name="adenopathy" class="form-item">
+        <option value="" disabled selected hidden>Adenopathy</option>
+        <option value=1>Right</option>
+        <option value=3>Left</option>
+        <option value=4>Bilateral</option>
+        <option value=2>Extensive</option>
+        <option value=5>Posterior</option>
+        <option value=0>No</option>
+      </select>
+      <select name="pathology" class="form-item">
+        <option value="" disabled selected hidden>Pathology</option>
+        <option value=0>Micropapillary</option>
+        <option value=1>Papillary</option>
+        <option value=2>Follicular</option>
+        <option value=3>Hurthel Cell</option>
+      </select>
+      <select name="focality" class = "form-item" >
+        <option value="" disabled selected hidden>Focality</option>
+        <option value=0>Uni-Focal</option>
+        <option value=1>Multi-Focal</option>
+      </select>
+      <select name="risk" class = "form-item" >
+        <option value="" disabled selected hidden>Risk</option>
+        <option value=0>Low</option>
+        <option value=1>Intermediate</option>
+        <option value=2>High</option>
+      </select>
+      <select name="T" class="form-item">
+        <option value="" disabled selected hidden>T</option>
+        <option value=0>T1a</option>
+        <option value=1>T1b</option>
+        <option value=2>T2</option>
+        <option value=3>T3a</option>
+        <option value=4>T3b</option>
+        <option value=5>T4a</option>
+        <option value=6>T4b</option>
+      </select>
+      <select name="N" class = "form-item" >
+        <option value="" disabled selected hidden>N</option>
+        <option value=0>N0</option>
+        <option value=2>N1a</option>
+        <option value=1>N1b</option>
+      </select>
+      <select name="M" class = "form-item" >
+        <option value="" disabled selected hidden>M</option>
+        <option value=0>M0</option>
+        <option value=1>M1</option>
+      </select>
+      <select name="stage" class="form-item">
+        <option value="" disabled selected hidden>Stage</option>
+        <option value=0>I</option>
+        <option value=1>II</option>
+        <option value=3>III</option>
+        <option value=4>IVA</option>
+        <option value=2>IVB</option>
+      </select>
+      <select name="response" class="form-item">
+        <option value="" disabled selected hidden>Response</option>
+        <option value=2>Structural Incomplete</option>
+        <option value=3>Biochemical Incomplete</option>
+        <option value=0>Indeterminate</option>
+        <option value=1>Excellent</option>
+      </select>
       </div>
-      <button type="button" class="btn btn-primary ">submit</button>
+      <input class="btn btn-info" type="submit">
+    <p>{{pred}}</p>
     </form>
   </div>
 </body>
@@ -66,10 +151,10 @@
     <div class="col md-6">
       <h5>Links</h5>
       <ul class="list-unstyled">
-        <li><a class = "foot-link" href="/index.html">Home</a></li>
-        <li><a class = "foot-link" href="/about.html">About</a></li>
-        <li><a class = "foot-link" href="/services.html">Services</a></li>
-        <li><a class = "foot-link" href="/faqs.html">FAQS</a></li>
+        <li><a class = "foot-link" href="/index">Home</a></li>
+        <li><a class = "foot-link" href="/services">Services</a></li>
+        <li><a class = "foot-link" href="/faqs">FAQS</a></li>
+        <li><a class = "foot-link" href="/about">About</a></li>
       </ul>
     </div>
     <div class="col md-6">
