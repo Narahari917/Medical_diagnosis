@@ -57,7 +57,7 @@ body{
 }
 
 .container{
-    height:120vh;
+    height:130vh;
 }
 
 .container .form .row {
@@ -89,4 +89,11 @@ body{
 .container .form .btn{
     margin-left: 48%;
     margin-top: 30px;
+}
+
+.container .form p{
+    margin-left: 30%;
+    margin-top: 50px;
+    font-size :30px;
+    font-weight: bold;
 }

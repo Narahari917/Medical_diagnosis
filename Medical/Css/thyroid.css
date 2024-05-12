@@ -60,7 +60,7 @@ body{
 .container {
     display: flex;
     flex-wrap: wrap;
-    height: 120vh;
+    height: 130vh;
 }
 
 .container .form .row {
@@ -91,4 +91,12 @@ body{
 .container .form .btn{
     margin-left: 48%;
     margin-top: 30px;
+}
+
+.container .form p{
+    margin-left: 20%;
+    margin-top: 50px;
+    font-size :30px;
+    font-weight: bold;
+    font-family: "Source Sans 3",sans-serif;
 }
