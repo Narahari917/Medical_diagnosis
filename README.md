@@ -127,8 +127,4 @@ The `notebooks/` folder contains Jupyter notebooks used to:
 **Narahari Kommi**
 [LinkedIn](https://www.linkedin.com/in/naraharikommi/) | [GitHub](https://github.com/Narahari917)
 
----
 
-## 📄 License
-
-This project was built for educational purposes. Add your preferred license here.
